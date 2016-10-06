@@ -3,6 +3,7 @@ if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 
 import App from '../components/App'
 import Home from './Home'
+// import '../styles/flexboxgrid.css'
 
 export default function createRoutes (store) {
   const root = {

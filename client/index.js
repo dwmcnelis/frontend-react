@@ -38,7 +38,10 @@ const render = () => {
       <Provider store={store}>
         <Router routes={routes} history={browserHistory} key={Math.random()} />
       </Provider>,
-      container
+      container, () => {
+        const styles = document.getElementById('server-side-styles')
+        styles.parentNode.removeChild(styles)
+      }
     )
   })
 

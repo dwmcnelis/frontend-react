@@ -19,6 +19,7 @@ import { configureStore } from '../common/store'
 import Helm from 'react-helmet' // because we are already using helmet
 import reducer from '../common/createReducer'
 import createRoutes from '../common/routes/root'
+import { jss } from '../common/styles/jss'
 
 const __PROD__ = process.env.NODE_ENV === 'production'
 const __TEST__ = process.env.NODE_ENV === 'test'
@@ -50,8 +51,8 @@ if (__PROD__ || __TEST__) {
 server.use(express.static('public'))
 server.use('/api/v0/posts', require('./api/posts'))
 
-
 server.get('*', (req, res) => {
+
   global.navigator = global.navigator || {};
   global.navigator.userAgent = req.headers['user-agent'] || 'all';
 
@@ -97,9 +98,10 @@ server.get('*', (req, res) => {
         )
 
         // just call html = ReactDOM.renderToString(InitialView)
-        // to if you don't want Aphrodite. Also change renderFullPage
+        // to if you don't want Jss. Also change renderFullPage
         // accordingly
         const html = ReactDOM.renderToString(InitialView)
+        const css = jss.sheets.toString()
         // res.status(200).send(html)
         // const data = StyleSheetServer.renderStatic(
         //   () => ReactDOM.renderToString(InitialView)
@@ -147,13 +149,28 @@ server.get('*', (req, res) => {
                   margin: 0;
                   padding: 0;
                 }
+
+                .yellowy {
+                  background-color: yellow ! important;
+                }
+
+                .orangey {
+                  background-color: orange ! important;
+                }
+
+                .cyany {
+                  background-color: cyan ! important;
+                }
+              </style>
+              <style type="text/css" id="server-side-styles">
+                ${css}
               </style>
             </head>
             <body>
               <div id="root">${html}</div>
               <script>window.INITIAL_STATE = ${JSON.stringify(initialState)};</script>
               <script src="${ __PROD__ ? assets.vendor.js : '/vendor.js' }"></script>
-              <script async src="${ __PROD__ ? assets.main.js : '/main.js' }" ></script>
+              <script async src="${ __PROD__ ? assets.app.js : '/app.js' }" ></script>
             </body>
           </html>
         `)

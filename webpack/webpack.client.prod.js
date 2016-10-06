@@ -8,14 +8,23 @@ const { CLIENT_ENTRY, CLIENT_OUTPUT, PUBLIC_PATH } = CONFIG
 module.exports = {
   devtool: false,
   entry: {
-    main: [CLIENT_ENTRY],
+    app: [CLIENT_ENTRY],
     vendor: [
-      'react',
+      'axios',
+      'history',
+      'immutable',
+      'material-ui',
       'react-dom',
-      'react-router',
-      'redux',
+      'react-helmet',
       'react-redux',
-      'immutable'
+      'react-router',
+      'react-tap-event-plugin',
+      'react',
+      'redial',
+      'redux-immutable',
+      'redux-thunk',
+      'redux',
+      'redux-logger'
     ],
   },
   output: {

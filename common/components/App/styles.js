@@ -1,30 +1,34 @@
-import { purple500, indigo500, grey400 } from 'material-ui/styles/colors'
+import { createStyleSheet } from 'jss-theme-reactor'
 
-export default {
+export const styleSheet = createStyleSheet('Button', (theme) => {
+  const { palette, shadows, transitions } = theme;
 
-  root: {
-    maxWidth: 700,
-    color: purple500,
-    margin: '2rem auto',
-    padding: '0 1rem'
-  },
+  return {
 
-  title: {
-    color: indigo500,
-    fontWeight: 'bold',
-    fontSize: 56
-  },
+    root: {
+      maxWidth: 700,
+      color: palette.text.primary,
+      margin: '2rem auto',
+      padding: '0 1rem'
+    },
 
-  footer: {
-    margin: '4rem auto',
-    textAlign: 'center',
-    color: grey400
-  },
+    title: {
+      color: palette.text.primary,
+      fontWeight: 'bold',
+      fontSize: 56
+    },
 
-  footerLink: {
-    display: 'inline-block',
-    color: purple500,
-    textDecoration: 'none'
+    footer: {
+      margin: '4rem auto',
+      textAlign: 'center',
+      color: palette.text.primary
+    },
+
+    footerLink: {
+      display: 'inline-block',
+      color: palette.text.primary,
+      textDecoration: 'none'
+    }
+
   }
-
-}
+})

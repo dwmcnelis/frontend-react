@@ -7,17 +7,27 @@ const { CLIENT_ENTRY, CLIENT_OUTPUT, PUBLIC_PATH } = CONFIG
 module.exports = {
   devtool: 'eval',
   entry: {
-    main: [
+    app: [
       'webpack/hot/only-dev-server',
       'webpack-hot-middleware/client',
       CLIENT_ENTRY
     ],
     vendor: [
-      'react',
+      'axios',
+      'history',
+      'immutable',
+      'material-ui',
       'react-dom',
+      'react-helmet',
+      'react-redux',
       'react-router',
+      'react-tap-event-plugin',
+      'react',
+      'redial',
+      'redux-immutable',
+      'redux-thunk',
       'redux',
-      'react-redux'
+      'redux-logger'
     ]
   },
   output: {
@@ -44,7 +54,7 @@ module.exports = {
           cacheDirectory: true,
           presets: ["es2015", "react", "stage-0"]
         }
-      },
+      }
     ]
   },
   standard: {
@@ -59,5 +69,5 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js', 2),
     new webpack.NoErrorsPlugin()
-  ],
+  ]
 }

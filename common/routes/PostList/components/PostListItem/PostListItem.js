@@ -1,10 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router'
-import FlatButton from 'material-ui/FlatButton'
-import styles from './styles'
+// import { Link } from 'react-router'
+// import FlatButton from 'material-ui/FlatButton'
+import Button from 'material-ui/Button'
+// import styles from './styles'
+// const classes = {button: 'button', label: 'label'}
 
 const PostListItem = ({ post }) => (
-  <FlatButton containerElement={<Link to={`/post/${post.slug}`} />} label={post.title} style={styles.root} labelStyle={styles.label} />
+  <Button href={`/post/${post.slug}`} >{post.title}</Button>
 )
 
 export default PostListItem

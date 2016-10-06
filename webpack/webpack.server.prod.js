@@ -39,9 +39,7 @@ module.exports = {
           presets: ["es2015", "react", "stage-0", "react-optimize"],
         },
         exclude: /(node_modules)/
-      },
-
-
+      }
     ]
   },
   plugins: [
