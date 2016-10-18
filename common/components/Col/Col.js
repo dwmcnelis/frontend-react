@@ -2,47 +2,45 @@ import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 import { flexBoxGridStyleSheet } from '../../styles/flexBoxGrid'
 
-const ModificatorType = PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
-const modificatorKeys = ['xs', 'sm', 'md', 'lg', 'xsOffset', 'smOffset', 'mdOffset', 'lgOffset']
+const ColumnType = PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
+const columnKeys = ['xs', 'sm', 'md', 'lg', 'xsOffset', 'smOffset', 'mdOffset', 'lgOffset']
 
-function getClassNames (props, classes) {
-  const modificators = []
+function mergeClassNames (props, classes) {
+  const classKeys = []
 
-  for (let i = 0; i < modificatorKeys.length; ++i) {
-    let key = modificatorKeys[i]
+  for (var key of columnKeys) {
     let value = props[key]
     if (value) {
       key = key.replace(/\b\w/g, l => l.toUpperCase())
       if (Number.isInteger(value)) {
-        modificators.push(classes[`col${key}${value}`])
+        classKeys.push(classes[`col${key}${value}`])
       } else {
-        modificators.push(classes[`col${key}`])
+        classKeys.push(classes[`col${key}`])
       }
     }
   }
 
   if (props.reverse) {
-    modificators.push(classes.colReverse)
+    classKeys.push(classes.colReverse)
   }
 
-  return classNames(props.className, modificators)
+  return classNames(props.className, classKeys)
 }
-
 
 export default class Col extends Component {
   static propTypes = {
-    xs: ModificatorType,
-    sm: ModificatorType,
-    md: ModificatorType,
-    lg: ModificatorType,
-    xsOffset: PropTypes.number,
-    smOffset: PropTypes.number,
-    mdOffset: PropTypes.number,
-    lgOffset: PropTypes.number,
-    reverse: PropTypes.bool,
+    children: PropTypes.node,
     className: PropTypes.string,
+    lg: ColumnType,
+    lgOffset: PropTypes.number,
+    md: ColumnType,
+    mdOffset: PropTypes.number,
+    reverse: PropTypes.bool,
+    sm: ColumnType,
+    smOffset: PropTypes.number,
     tagName: PropTypes.string,
-    children: PropTypes.node
+    xs: ColumnType,
+    xsOffset: PropTypes.number
   }
 
   static defaultProps = {
@@ -54,17 +52,20 @@ export default class Col extends Component {
   }
 
   render () {
-    const {
+    let {
       children,
       tagName,
+      ...rest
     } = this.props
+    columnKeys.forEach(key => {
+      delete rest[key]
+    })
 
     const classes = this.context.styleManager.render(flexBoxGridStyleSheet)
-    var className = getClassNames(this.props, classes)
     const Tag = `${tagName}`
 
     return (
-      <Tag className={className} >
+      <Tag className={mergeClassNames(this.props, classes)} {...rest}>
         {children}
       </Tag>
     )

@@ -1,33 +1,28 @@
 import { createStore, applyMiddleware, compose } from 'redux'
+import logger from 'redux-logger'
 import thunk from 'redux-thunk'
-import axios from 'axios'
 import createReducer from './createReducer'
+import { isDevelopment } from './env'
 
-export function configureStore (initialState) {
+export function configureStore (initialState, axios) {
   let store = createStore(createReducer(), initialState, compose(
     applyMiddleware(
-      thunk.withExtraArgument({ axios })
+      thunk.withExtraArgument({ axios }),
+      logger()
     ),
 
-    process.env.NODE_ENV === 'development' &&
+    isDevelopment() &&
     typeof window === 'object' &&
     typeof window.devToolsExtension !== 'undefined'
       ? window.devToolsExtension()
       : f => f
   ))
 
-  store.asyncReducers = {}
-
-  if (process.env.NODE_ENV === 'development') {
+  if (isDevelopment()) {
     if (module.hot) {
       module.hot.accept('./createReducer', () => store.replaceReducer(require('./createReducer').default))
     }
   }
 
   return store
-}
-
-export function injectAsyncReducer (store, name, asyncReducer) {
-  store.asyncReducers[name] = asyncReducer
-  store.replaceReducer(createReducer(store.asyncReducers))
 }

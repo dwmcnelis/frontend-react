@@ -5,31 +5,7 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
     'margin-right': 'auto',
     'margin-left': 'auto'
   }
-  const colXs = {
-    'box-sizing': 'border-box',
-    '-webkit-box-flex': '0',
-    '-ms-flex': '0 0 auto',
-    'flex': '0 0 auto',
-    'padding-right': '0.5rem',
-    'padding-left': '0.5rem'
-  }
-  const colSm = {
-    'box-sizing': 'border-box',
-    '-webkit-box-flex': '0',
-    '-ms-flex': '0 0 auto',
-    'flex': '0 0 auto',
-    'padding-right': '0.5rem',
-    'padding-left': '0.5rem'
-  }
-  const colMd = {
-    'box-sizing': 'border-box',
-    '-webkit-box-flex': '0',
-    '-ms-flex': '0 0 auto',
-    'flex': '0 0 auto',
-    'padding-right': '0.5rem',
-    'padding-left': '0.5rem'
-  }
-  const colLg = {
+  const column = {
     'box-sizing': 'border-box',
     '-webkit-box-flex': '0',
     '-ms-flex': '0 0 auto',
@@ -76,7 +52,7 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
       'flex-direction': 'column-reverse'
     },
     colXs: {
-      ...colXs,
+      ...column,
       '-webkit-box-flex': '1',
       '-ms-flex-positive': '1',
       'flex-grow': '1',
@@ -85,127 +61,127 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
       'max-width': '100%'
     },
     colXs1: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '8.33333333%',
       'flex-basis': '8.33333333%',
       'max-width': '8.33333333%'
     },
     colXs2: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '16.66666667%',
       'flex-basis': '16.66666667%',
       'max-width': '16.66666667%'
     },
     colXs3: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '25%',
       'flex-basis': '25%',
       'max-width': '25%'
     },
     colXs4: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '33.33333333%',
       'flex-basis': '33.33333333%',
       'max-width': '33.33333333%'
     },
     colXs5: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '41.66666667%',
       'flex-basis': '41.66666667%',
       'max-width': '41.66666667%'
     },
     colXs6: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '50%',
       'flex-basis': '50%',
       'max-width': '50%'
     },
     colXs7: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '58.33333333%',
       'flex-basis': '58.33333333%',
       'max-width': '58.33333333%'
     },
     colXs8: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '66.66666667%',
       'flex-basis': '66.66666667%',
       'max-width': '66.66666667%'
     },
     colXs9: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '75%',
       'flex-basis': '75%',
       'max-width': '75%'
     },
     colXs10: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '83.33333333%',
       'flex-basis': '83.33333333%',
       'max-width': '83.33333333%'
     },
     colXs11: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '91.66666667%',
       'flex-basis': '91.66666667%',
       'max-width': '91.66666667%'
     },
     colXs12: {
-      ...colXs,
+      ...column,
       '-ms-flex-preferred-size': '100%',
       'flex-basis': '100%',
       'max-width': '100%'
     },
     colXsOffset0: {
-      ...colXs,
+      ...column,
       'margin-left': '0'
     },
     colXsOffset1: {
-      ...colXs,
+      ...column,
       'margin-left': '8.33333333%'
     },
     colXsOffset2: {
-      ...colXs,
+      ...column,
       'margin-left': '16.66666667%'
     },
     colXsOffset3: {
-      ...colXs,
+      ...column,
       'margin-left': '25%'
     },
     colXsOffset4: {
-      ...colXs,
+      ...column,
       'margin-left': '33.33333333%'
     },
     colXsOffset5: {
-      ...colXs,
+      ...column,
       'margin-left': '41.66666667%'
     },
     colXsOffset6: {
-      ...colXs,
+      ...column,
       'margin-left': '50%'
     },
     colXsOffset7: {
-      ...colXs,
+      ...column,
       'margin-left': '58.33333333%'
     },
     colXsOffset8: {
-      ...colXs,
+      ...column,
       'margin-left': '66.66666667%'
     },
     colXsOffset9: {
-      ...colXs,
+      ...column,
       'margin-left': '75%'
     },
     colXsOffset10: {
-      ...colXs,
+      ...column,
       'margin-left': '83.33333333%'
     },
     colXsOffset11: {
-      ...colXs,
+      ...column,
       'margin-left': '91.66666667%'
     },
     colXsOffset12: {
-      ...colXs
+      ...column
     },
     startXs: {
       '-webkit-box-pack': 'start',
@@ -265,7 +241,7 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
         'width': '49rem'
       },
       colSm: {
-        ...colSm,
+        ...column,
         '-webkit-box-flex': '1',
         '-ms-flex-positive': '1',
         'flex-grow': '1',
@@ -274,127 +250,127 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
         'max-width': '100%'
       },
       colSm1: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '8.33333333%',
         'flex-basis': '8.33333333%',
         'max-width': '8.33333333%'
       },
       colSm2: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '16.66666667%',
         'flex-basis': '16.66666667%',
         'max-width': '16.66666667%'
       },
       colSm3: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '25%',
         'flex-basis': '25%',
         'max-width': '25%'
       },
       colSm4: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '33.33333333%',
         'flex-basis': '33.33333333%',
         'max-width': '33.33333333%'
       },
       colSm5: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '41.66666667%',
         'flex-basis': '41.66666667%',
         'max-width': '41.66666667%'
       },
       colSm6: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '50%',
         'flex-basis': '50%',
         'max-width': '50%'
       },
       colSm7: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '58.33333333%',
         'flex-basis': '58.33333333%',
         'max-width': '58.33333333%'
       },
       colSm8: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '66.66666667%',
         'flex-basis': '66.66666667%',
         'max-width': '66.66666667%'
       },
       colSm9: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '75%',
         'flex-basis': '75%',
         'max-width': '75%'
       },
       colSm10: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '83.33333333%',
         'flex-basis': '83.33333333%',
         'max-width': '83.33333333%'
       },
       colSm11: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '91.66666667%',
         'flex-basis': '91.66666667%',
         'max-width': '91.66666667%'
       },
       colSm12: {
-        ...colSm,
+        ...column,
         '-ms-flex-preferred-size': '100%',
         'flex-basis': '100%',
         'max-width': '100%'
       },
       colSmOffset0: {
-        ...colSm,
+        ...column,
         'margin-left': '0'
       },
       colSmOffset1: {
-        ...colSm,
+        ...column,
         'margin-left': '8.33333333%'
       },
       colSmOffset2: {
-        ...colSm,
+        ...column,
         'margin-left': '16.66666667%'
       },
       colSmOffset3: {
-        ...colSm,
+        ...column,
         'margin-left': '25%'
       },
       colSmOffset4: {
-        ...colSm,
+        ...column,
         'margin-left': '33.33333333%'
       },
       colSmOffset5: {
-        ...colSm,
+        ...column,
         'margin-left': '41.66666667%'
       },
       colSmOffset6: {
-        ...colSm,
+        ...column,
         'margin-left': '50%'
       },
       colSmOffset7: {
-        ...colSm,
+        ...column,
         'margin-left': '58.33333333%'
       },
       colSmOffset8: {
-        ...colSm,
+        ...column,
         'margin-left': '66.66666667%'
       },
       colSmOffset9: {
-        ...colSm,
+        ...column,
         'margin-left': '75%'
       },
       colSmOffset10: {
-        ...colSm,
+        ...column,
         'margin-left': '83.33333333%'
       },
       colSmOffset11: {
-        ...colSm,
+        ...column,
         'margin-left': '91.66666667%'
       },
       colSmOffset12: {
-        ...colSm
+        ...column
       },
       startSm: {
         '-webkit-box-pack': 'start',
@@ -455,7 +431,7 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
         'width': '65rem'
       },
       colMd: {
-        ...colMd,
+        ...column,
         '-webkit-box-flex': '1',
         '-ms-flex-positive': '1',
         'flex-grow': '1',
@@ -464,123 +440,123 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
         'max-width': '100%'
       },
       colMd1: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '8.33333333%',
         'flex-basis': '8.33333333%',
         'max-width': '8.33333333%'
       },
       colMd2: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '16.66666667%',
         'flex-basis': '16.66666667%',
         'max-width': '16.66666667%'
       },
       colMd3: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '25%',
         'flex-basis': '25%',
         'max-width': '25%'
       },
       colMd4: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '33.33333333%',
         'flex-basis': '33.33333333%',
         'max-width': '33.33333333%'
       },
       colMd5: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '41.66666667%',
         'flex-basis': '41.66666667%',
         'max-width': '41.66666667%'
       },
       colMd6: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '50%',
         'flex-basis': '50%',
         'max-width': '50%'
       },
       colMd7: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '58.33333333%',
         'flex-basis': '58.33333333%',
         'max-width': '58.33333333%'
       },
       colMd8: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '66.66666667%',
         'flex-basis': '66.66666667%',
         'max-width': '66.66666667%'
       },
       colMd9: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '75%',
         'flex-basis': '75%',
         'max-width': '75%'
       },
       colMd10: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '83.33333333%',
         'flex-basis': '83.33333333%',
         'max-width': '83.33333333%'
       },
       colMd11: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '91.66666667%',
         'flex-basis': '91.66666667%',
         'max-width': '91.66666667%'
       },
       colMd12: {
-        ...colMd,
+        ...column,
         '-ms-flex-preferred-size': '100%',
         'flex-basis': '100%',
         'max-width': '100%'
       },
       colMdOffset0: {
-        ...colMd,
+        ...column,
         'margin-left': '0'
       },
       colMdOffset1: {
-        ...colMd,
+        ...column,
         'margin-left': '8.33333333%'
       },
       colMdOffset2: {
-        ...colMd,
+        ...column,
         'margin-left': '16.66666667%'
       },
       colMdOffset3: {
-        ...colMd,
+        ...column,
         'margin-left': '25%'
       },
       colMdOffset4: {
-        ...colMd,
+        ...column,
         'margin-left': '33.33333333%'
       },
       colMdOffset5: {
-        ...colMd,
+        ...column,
         'margin-left': '41.66666667%'
       },
       colMdOffset6: {
-        ...colMd,
+        ...column,
         'margin-left': '50%'
       },
       colMdOffset7: {
-        ...colMd,
+        ...column,
         'margin-left': '58.33333333%'
       },
       colMdOffset8: {
-        ...colMd,
+        ...column,
         'margin-left': '66.66666667%'
       },
       colMdOffset9: {
-        ...colMd,
+        ...column,
         'margin-left': '75%'
       },
       colMdOffset10: {
-        ...colMd,
+        ...column,
         'margin-left': '83.33333333%'
       },
       colMdOffset12: {
-        ...colMd
+        ...column
       },
       startMd: {
         '-webkit-box-pack': 'start',
@@ -641,7 +617,7 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
         'width': '76rem'
       },
       colLg: {
-        ...colLg,
+        ...column,
         '-webkit-box-flex': '1',
         '-ms-flex-positive': '1',
         'flex-grow': '1',
@@ -650,127 +626,127 @@ export const flexBoxGridStyleSheet = createStyleSheet('FlexBoxGrid', (theme) => 
         'max-width': '100%'
       },
       colLg1: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '8.33333333%',
         'flex-basis': '8.33333333%',
         'max-width': '8.33333333%'
       },
       colLg2: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '16.66666667%',
         'flex-basis': '16.66666667%',
         'max-width': '16.66666667%'
       },
       colLg3: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '25%',
         'flex-basis': '25%',
         'max-width': '25%'
       },
       colLg4: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '33.33333333%',
         'flex-basis': '33.33333333%',
         'max-width': '33.33333333%'
       },
       colLg5: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '41.66666667%',
         'flex-basis': '41.66666667%',
         'max-width': '41.66666667%'
       },
       colLg6: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '50%',
         'flex-basis': '50%',
         'max-width': '50%'
       },
       colLg7: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '58.33333333%',
         'flex-basis': '58.33333333%',
         'max-width': '58.33333333%'
       },
       colLg8: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '66.66666667%',
         'flex-basis': '66.66666667%',
         'max-width': '66.66666667%'
       },
       colLg9: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '75%',
         'flex-basis': '75%',
         'max-width': '75%'
       },
       colLg10: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '83.33333333%',
         'flex-basis': '83.33333333%',
         'max-width': '83.33333333%'
       },
       colLg11: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '91.66666667%',
         'flex-basis': '91.66666667%',
         'max-width': '91.66666667%'
       },
       colLg12: {
-        ...colLg,
+        ...column,
         '-ms-flex-preferred-size': '100%',
         'flex-basis': '100%',
         'max-width': '100%'
       },
       colLgOffset0: {
-        ...colLg,
+        ...column,
         'margin-left': '0'
       },
       colLgOffset1: {
-        ...colLg,
+        ...column,
         'margin-left': '8.33333333%'
       },
       colLgOffset2: {
-        ...colLg,
+        ...column,
         'margin-left': '16.66666667%'
       },
       colLgOffset3: {
-        ...colLg,
+        ...column,
         'margin-left': '25%'
       },
       colLgOffset4: {
-        ...colLg,
+        ...column,
         'margin-left': '33.33333333%'
       },
       colLgOffset5: {
-        ...colLg,
+        ...column,
         'margin-left': '41.66666667%'
       },
       colLgOffset6: {
-        ...colLg,
+        ...column,
         'margin-left': '50%'
       },
       colLgOffset7: {
-        ...colLg,
+        ...column,
         'margin-left': '58.33333333%'
       },
       colLgOffset8: {
-        ...colLg,
+        ...column,
         'margin-left': '66.66666667%'
       },
       colLgOffset9: {
-        ...colLg,
+        ...column,
         'margin-left': '75%'
       },
       colLgOffset10: {
-        ...colLg,
+        ...column,
         'margin-left': '83.33333333%'
       },
       colLgOffset11: {
-        ...colLg,
+        ...column,
         'margin-left': '91.66666667%'
       },
       colLgOffset12: {
-        ...colLg
+        ...column
       },
       startLg: {
         '-webkit-box-pack': 'start',

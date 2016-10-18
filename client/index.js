@@ -1,22 +1,24 @@
 import 'babel-polyfill'
-import { trigger } from 'redial'
-
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Router from 'react-router/lib/Router'
 import match from 'react-router/lib/match'
 import browserHistory from 'react-router/lib/browserHistory'
-import { Provider } from 'react-redux'
-import { fromJS } from 'immutable'
-
+import { syncHistoryWithStore } from 'react-router-redux'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import { Provider } from 'react-redux'
+import { trigger } from 'redial'
+import axios from 'axios'
+import { configureStore } from '../common/store'
+
 injectTapEventPlugin()
 
-import { configureStore } from '../common/store'
 const initialState = window.INITIAL_STATE || {}
-// Set up Redux (note: this API requires redux@>=3.1.0):
-const store = configureStore(fromJS(initialState))
+
+const store = configureStore(initialState, axios)
 const { dispatch } = store
+
+const history = syncHistoryWithStore(browserHistory, store)
 
 const container = document.getElementById('root')
 
@@ -28,19 +30,23 @@ const render = () => {
   const createRoutes = require('../common/routes/root').default
   const routes = createRoutes(store)
 
+
   // Pull child routes using match. Adjust Router for vanilla webpack HMR,
   // in development using a new key every time there is an edit.
   match({ routes, location }, () => {
+    if (window.INITIAL_STATE) {
+      store.getState().routing.locationBeforeTransitions = initialState.routing.locationBeforeTransitions
+    }
     // Render app with Redux and router context to container element.
     // We need to have a random in development because of `match`'s dependency on
     // `routes.` Normally, we would want just one file from which we require `routes` from.
     ReactDOM.render(
       <Provider store={store}>
-        <Router routes={routes} history={browserHistory} key={Math.random()} />
+        <Router routes={routes} history={history} key={Math.random()} />
       </Provider>,
       container, () => {
         const styles = document.getElementById('server-side-styles')
-        styles.parentNode.removeChild(styles)
+        styles && styles.parentNode.removeChild(styles)
       }
     )
   })

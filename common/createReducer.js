@@ -1,18 +1,18 @@
-import { combineReducers } from 'redux-immutable'
-import { fromJS } from 'immutable'
+import combineReducers from './combineReducers'
+import auth from './redux/auth/reducer'
+import clients from './redux/clients/reducer'
+import origin from './redux/origin/reducer'
+import posts from './redux/posts/reducer'
+import post from './redux/post/reducer'
+import { routerReducer } from 'react-router-redux'
 
-const initialState = fromJS({
-  host: '',
-  protocol: ''
-})
-
-const sourceRequest = (state = initialState, action) => state
-
-// Only combine reducers needed for initial render, others will be
-// added async
-export default function createReducer (asyncReducers) {
+export default function createReducer () {
   return combineReducers({
-    sourceRequest,
-    ...asyncReducers
+    routing: routerReducer,
+    auth,
+    clients,
+    origin,
+    posts,
+    post
   })
 }

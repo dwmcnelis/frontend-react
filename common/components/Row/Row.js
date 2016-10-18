@@ -2,44 +2,43 @@ import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 import { flexBoxGridStyleSheet } from '../../styles/flexBoxGrid'
 
-const ModificatorType = PropTypes.oneOf(['xs', 'sm', 'md', 'lg'])
-const modificatorKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last']
+const RowType = PropTypes.oneOf(['xs', 'sm', 'md', 'lg'])
+const rowKeys = ['start', 'center', 'end', 'top', 'middle', 'bottom', 'around', 'between', 'first', 'last']
 
-function getClassNames (props, classes) {
-  const modificators = [classes.row]
+function mergeClassNames (props, classes) {
+  const classKeys = [classes.row]
 
-  for (let i = 0; i < modificatorKeys.length; ++i) {
-    let key = modificatorKeys[i]
+  for (var key of rowKeys) {
     let value = props[key]
     if (value) {
       value = value.replace(/\b\w/g, l => l.toUpperCase())
-      modificators.push(classes[`${key}${value}`])
+      classKeys.push(classes[`${key}${value}`])
     }
   }
 
   if (props.reverse) {
-    modificators.push(classes.rowReverse)
+    classKeys.push(classes.rowReverse)
   }
 
-  return classNames(props.className, modificators)
+  return classNames(props.className, classKeys)
 }
 
 export default class Row extends Component {
   static propTypes = {
-    reverse: PropTypes.bool,
-    start: ModificatorType,
-    center: ModificatorType,
-    end: ModificatorType,
-    top: ModificatorType,
-    middle: ModificatorType,
-    bottom: ModificatorType,
-    around: ModificatorType,
-    between: ModificatorType,
-    first: ModificatorType,
-    last: ModificatorType,
+    around: RowType,
+    between: RowType,
+    bottom: RowType,
+    center: RowType,
+    children: PropTypes.node,
     className: PropTypes.string,
+    end: RowType,
+    first: RowType,
+    last: RowType,
+    middle: RowType,
+    reverse: PropTypes.bool,
+    start: RowType,
     tagName: PropTypes.string,
-    children: PropTypes.node
+    top: RowType
   }
 
   static defaultProps = {
@@ -51,17 +50,20 @@ export default class Row extends Component {
   }
 
   render () {
-    const {
+    let {
       children,
-      tagName
+      tagName,
+      ...rest
     } = this.props
+    rowKeys.forEach(key => {
+      delete rest[key]
+    })
 
     const classes = this.context.styleManager.render(flexBoxGridStyleSheet)
-    var className = getClassNames(this.props, classes)
     const Tag = `${tagName}`
 
     return (
-      <Tag className={className} >
+      <Tag className={mergeClassNames(this.props, classes)} {...rest}>
         {children}
       </Tag>
     )

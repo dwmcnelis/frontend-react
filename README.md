@@ -9,7 +9,6 @@ A React application (master-detail feed) with isomorphic rendering, async react-
  - [Redux](https://github.com/reactjs/redux)
  - [React Router](https://github.com/reactjs/react-router) 2.0
  - [React Helmet](https://github.com/nfl/react-helmet) for meta tags by the NFL
- - [Immutable.js](https://github.com/facebook/immutable-js)
  - [MaterialUI.js](https://github.com/callemall/material-ui)
  - [Redial](https://github.com/markdalgleish/redial) for data fetching by [@markdalgleish](https://twitter.com/markdalgleish)
  - [Babel 6](https://github.com/babel/babel)

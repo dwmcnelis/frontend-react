@@ -28,6 +28,15 @@ export const styleSheet = createStyleSheet('Button', (theme) => {
       display: 'inline-block',
       color: palette.text.primary,
       textDecoration: 'none'
+    },
+
+    barButton: {
+      fontSize: 12,
+      fontWeight: 'bold',
+      marginRight: 8,
+      minWidth: 56,
+      height: 28,
+      textTransform: 'capitalize'
     }
 
   }

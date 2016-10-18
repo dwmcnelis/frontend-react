@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import classNames from 'classnames'
 import { flexBoxGridStyleSheet } from '../../styles/flexBoxGrid'
 
-function getClassNames (props, classes) {
+function mergeClassNames (props, classes) {
   return classNames({
     [classes.container]: !props.fluid,
     [classes.containerFluid]: props.fluid
@@ -26,17 +26,18 @@ export default class Grid extends Component {
   }
 
   render () {
-    const {
+    let {
       children,
       tagName,
+      ...rest
     } = this.props
+    delete rest['fluid']
 
     const classes = this.context.styleManager.render(flexBoxGridStyleSheet)
-    const className = getClassNames(this.props, classes)
     const Tag = `${tagName}`
 
     return (
-      <Tag className={className} >
+      <Tag className={mergeClassNames(this.props, classes)} {...rest}>
         {children}
       </Tag>
     )

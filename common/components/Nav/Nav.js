@@ -11,7 +11,11 @@ const Nav = () => {
       <IndexLink to='/' className={classes.link} >
         Home
       </IndexLink>
-      <Link to='/posts' className={classes.link}> Feed
+      <Link to='/posts' className={classes.link}> Posts
+      </Link>
+      <Link to='/clients' className={classes.link}> Clients
+      </Link>
+      <Link to='/login' className={classes.link}> Login
       </Link>
       <a href='https://github.com/dwmcnelis/frontend-react' className={classes.link} target='_blank'>GitHub</a>
     </div>

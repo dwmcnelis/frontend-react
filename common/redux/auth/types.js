@@ -1,0 +1,5 @@
+export const AUTH_SET = 'AUTH_SET'
+export const AUTH_RESET = 'AUTH_RESET'
+export const AUTH_REQUESTED = 'AUTH_REQUESTED'
+export const AUTH_FULFILLED = 'AUTH_FULFILLED'
+export const AUTH_REJECTED = 'AUTH_REJECTED'

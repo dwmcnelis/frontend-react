@@ -7,7 +7,7 @@ import fakeDB from '../fakeDB.js'
 router.get('/', (req, res) => {
   setTimeout(() => {
     res.status(200).json(fakeDB)
-  }, 300)
+  }, 50)
 })
 
 router.get('/:slug', (req, res) => {
@@ -20,7 +20,7 @@ router.get('/:slug', (req, res) => {
 
   setTimeout(() => {
     res.status(200).json(fakeDB[index])
-  }, 300)
+  }, 50)
 })
 
 module.exports = router
